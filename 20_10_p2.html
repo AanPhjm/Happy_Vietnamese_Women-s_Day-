@@ -5,40 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="20_10_p2.css">
+    <link rel="icon" href="img/flowers.png" type="image/x-icon">
     <script src="main.js" type="text/javascript"></script><title>Happy Woman's day 20/10</title>
 </head>
-
-<!-- âm thanh trang web -->
-<audio id="bgMusic" loop autoplay preload="auto">
-  <source src="shimmering-object-79354.mp3" type="audio/mpeg">
-</audio>
-
-<script>
-  const bgMusic = document.getElementById("bgMusic");
-  bgMusic.volume = 0.2;
-
-  // Nếu có thời gian lưu trước đó thì phát tiếp
-  const savedTime = localStorage.getItem("musicTime");
-  if (savedTime) {
-    bgMusic.currentTime = parseFloat(savedTime);
-  }
-
-  document.addEventListener('click', () => {
-    if (bgMusic.paused) bgMusic.play().catch(() => {});
-  }, { once: true });
-
-  // Cập nhật liên tục vị trí nhạc
-  setInterval(() => {
-    localStorage.setItem("musicTime", bgMusic.currentTime);
-  }, 1000);
-</script>
-
-
-
-    
-<body class="not-loaded">
+<body class="container">
     <div class="night"></div>
-    <div class="happy-woman-day">𝓗𝓪𝓹𝓹𝔂 𝔀𝓸𝓶𝓮𝓷'𝓼 𝓭𝓪𝔂 2️⃣0️⃣/1️⃣0️⃣</div>
     <div class="flowers">
       <div class="flower flower--1">
         <div class="flower__leafs flower__leafs--1">
@@ -335,5 +306,7 @@
         </div>
       </div>
     </div>
-</body>
+    
+    <script src="main.js"></script>
+  </body>
 </html>
