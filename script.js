@@ -18,6 +18,11 @@ function showLetter() {
   const envelope = document.getElementById('envelope');
   envelope.style.display = 'block';
   document.getElementById('greeting').textContent = randomGreeting;
+
+  const bgMusic = document.getElementById('bgMusic');
+  if (bgMusic.paused) {
+    bgMusic.play().catch(() => {});
+  }
 }
 
 function openLetter() {
@@ -44,4 +49,5 @@ function createPetal() {
   setTimeout(() => petal.remove(), 10000);
 }
 setInterval(createPetal, 400);
+
 
