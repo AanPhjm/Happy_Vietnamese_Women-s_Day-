@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chúc mừng 20/10</title>
+  <link rel="stylesheet" href="20_10.css" />
+</head>
+
+<!-- 🎵 Nhạc nền tự động phát -->
+<audio id="bgMusic" autoplay loop preload="auto">
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  // Giảm âm lượng xuống nhỏ
+  const bgMusic = document.getElementById("bgMusic");
+  bgMusic.volume = 0.2;
+
+  // Một số trình duyệt chặn autoplay, nên thêm click fallback
+  document.addEventListener('click', () => {
+    if (bgMusic.paused) {
+      bgMusic.play().catch(() => {});
+    }
+  }, { once: true });
+</script>
+
+<body>
+
+  <div class="input-container" id="input-box">
+    <h2>💖 Nhập tên của bạn 💖</h2>
+    <input type="text" id="nameInput" placeholder="Nhập tên của bạn...">
+    <button onclick="showLetter()">Xong</button>
+  </div>
+
+  <div class="envelope" id="envelope" onclick="openLetter()">
+    <div class="flap"></div>
+    <div class="body">
+      <div class="note">
+        <p id="greeting"></p>
+        <button class="next-btn" onclick="nextPage(event)">Tiếp →</button>
+      </div>
+    </div>
+    <div class="hint">💌 Ấn để mở thư 💌</div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
